@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SIMPLE GALLERY - CREATE POST</title>
+  
+  <style>
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: skyblue;
+    }
+    h1 {
+      text-align: center;
+      padding: 20px 0;
+      background-color: skyblue;
+      color: black;
+      margin: 0;
+    }
+    form {
+      margin-top: 100px;
+    }
+    input[type="text"], input[type="file"], textarea {
+      width: 500px;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-left: 350px;
+    }
+    img {
+      margin-top: 50px;
+     margin-left: 350px;
+      width: 500px;
+      height: 300px;
+    }
+    button {
+      margin-left: 350px;
+      width: 120px;
+      height: 30px;
+      border-radius: 1rem;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      font: bold;
+    }
+    button:hover{
+      width: 130px;
+      height: 40px;
+      border-radius: 1rem;
+      background-color: white;
+      color: black;
+      transition: 1s;
+      font-size: 20px;
+      font:900;
+    }
+    #button1{
+      margin-left: 10px;
+      width: 120px;
+      height: 30px;
+      border-radius: 1rem;
+      background-color: black;
+      color: white;
+      font-size: 20px;
+      font: bold;
+    }
+    #button1:hover{
+      width: 130px;
+      height: 40px;
+      border-radius: 1rem;
+      background-color: white;
+      color: black;
+      transition: 1s;
+      font-size: 20px;
+      font:900;
+    }
+    
+    
+  </style>
+</head>
+<body>
+  <h1>SIMPLE GALLERY - CREATE POST</h1>
+  <form>
+    <input type="text" id="caption" 
+    placeholder="Enter caption..."><br><br><br>
+    <input type="file" id="imageInput" accept="image/*"><br><br><br>
+    <button type="button" onclick="addPost()">Add Post </button>
+    <button id="button1" type="button" onclick="view()">view </button>
+    
+    </form>
+
+  <script>
+    function addPost() {
+      const caption = document.getElementById("caption").value;
+      const imageInput = document.getElementById("imageInput");
+      const imageFile = imageInput.files[0];
+
+      if (!caption || !imageFile) {
+        alert("Please provide both a caption and an image.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const imageDataUrl = event.target.result;
+        const image = document.createElement("img");
+        image.src = imageDataUrl;
+
+        const captionElement = document.createElement("p");
+        captionElement.textContent = caption;
+
+        const galleryContainer = document.getElementById("galleryContainer");
+        galleryContainer.appendChild(image);
+        galleryContainer.appendChild(captionElement);
+
+        
+        document.getElementById("caption").value = "";
+        imageInput.value = "";
+      };
+
+      reader.readAsDataURL(imageFile);
+    }
+  </script>
+
+  
+  <div id="galleryContainer"></div>
+</body>
+</html>

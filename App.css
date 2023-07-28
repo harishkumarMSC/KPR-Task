@@ -1,0 +1,57 @@
+/* Define some variables for colors */
+:root {
+  --primary-color: #ff5733; /* Replace with your preferred primary color */
+  --secondary-color: #33ff57; /* Replace with your preferred secondary color */
+  --text-color: #333; /* Replace with your preferred text color */
+  --background-color: #f0f0f0; /* Replace with your preferred background color */
+}
+
+/* Apply styles to different elements */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+}
+
+p {
+  color: var(--secondary-color);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Add more styles for other elements as needed */
+
+/* Example of a colorful card style */
+.card {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card h2 {
+  color: var(--primary-color);
+}
+
+.card p {
+  color: var(--text-color);
+}
+
+.card button {
+  background-color: var(--secondary-color);
+}
